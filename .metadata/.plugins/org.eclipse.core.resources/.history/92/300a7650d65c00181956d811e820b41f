@@ -1,0 +1,75 @@
+package pers.nasanir.blog.common.sql.service;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+
+import pers.nasanir.blog.common.common.anno.PeaceField;
+import pers.nasanir.blog.common.common.anno.PeaceTable;
+import pers.nasanir.blog.common.common.constant.CommonConstant;
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.db.constant.DbConstant;
+import pers.nasanir.blog.common.reflect.ClassInfo;
+import pers.nasanir.blog.common.reflect.Invoker;
+import pers.nasanir.blog.common.sql.entity.SqlVO;
+import pers.nasanir.blog.common.sql.itf.ISqlbuilder;
+
+public class AbstractSqlBuilder implements ISqlbuilder {
+	private HashMap<String, String> notNullValueMap = new HashMap<String, String>();
+	private int whereLen = 0;
+
+	@Override
+	public <T extends AbstractVO> SqlVO getQuerySql(T vo) {
+		// TODO Auto-generated method stub
+		ClassInfo clzInfo = ClassInfo.forClass(vo.getClass());
+		String whereCaluse = "";
+		try {
+			whereCaluse=getWhereCaluse(clzInfo);
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		PeaceTable tableAnno = (PeaceTable) clzInfo.getAnnotation(PeaceTable.class);
+		if (tableAnno != null) {
+			String tableName = tableAnno.name();
+			if (!tableName.equals("")) {
+				StringBuffer sql = new StringBuffer(DbConstant.SQLSTRAT.length() + tableName.length() + whereLen);
+				sql.append(DbConstant.SQLSTRAT).append(tableName);
+				if (!whereCaluse.equals("")) {
+
+				}
+			}
+		}
+
+		return null;
+	}
+
+	private String getWhereCaluse(ClassInfo clzInfo)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		for (Field field : clzInfo.getClz().getFields()) {
+			field.setAccessible(true);
+			String fieldName = field.getName().toLowerCase();
+			String methodName = CommonConstant.GET + field.getName().toLowerCase();
+			Invoker invoker = clzInfo.getInvokerMap().get(methodName);
+			Object[] args = {};
+			if (invoker != null) {
+				Object value = invoker.invoke(clzInfo.getClz(), args);
+				if (value != null) {
+					String valueStr;
+					int valueLen = 0;
+					if (field.getType().getName().equals(CommonConstant.DATETYPE)) {
+						valueStr = new SimpleDateFormat(CommonConstant.YMDHIS).format(value);
+					} else {
+						valueStr = String.valueOf(value);
+					}
+					valueLen = valueStr.length();
+
+					notNullFieldLen = notNullFieldLen + fieldName.length() + valueLen;
+					notNullValueMap.put(fieldName, valueStr);
+				}
+			}
+		}
+	}
+
+}

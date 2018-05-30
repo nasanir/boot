@@ -1,0 +1,23 @@
+package pers.nasanir.blog.common.common.entity;
+
+import java.util.List;
+
+public class VOSet<T extends AbstractVO> {
+	private String sql=null;
+	private List<T> voList=null;
+	
+	public boolean isEmpty(){
+		if(voList.isEmpty()||voList==null)
+			return true;
+		return false;
+	}
+	
+	public T getVO(int index){
+		
+		if(this.isEmpty())
+			
+		return null;
+		else
+			return this.voList.get(index);
+	}
+}

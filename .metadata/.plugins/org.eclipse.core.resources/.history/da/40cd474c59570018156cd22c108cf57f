@@ -1,0 +1,64 @@
+package pers.nasanir.blog.common.crypto.abst;
+
+import pers.nasanir.blog.common.crypto.constant.CryptoContant;
+import pers.nasanir.blog.common.crypto.itf.IEncoder;
+
+public abstract class AbstractEncoder implements IEncoder {
+
+	@Override
+	public abstract byte[] encode(byte[] message);
+	
+	@Override
+	public abstract byte[] encode(String message);
+
+	@Override
+	public String encode2Hex(byte[] message) {
+		// TODO Auto-generated method stub
+		encode(message);
+	}
+
+	@Override
+	public String encode2Hex(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] decode(byte[] message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] decode(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String decode2Hex(byte[] message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String decode2Hex(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <T> boolean vaildate(T message, T sign) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public String byte2Hex(byte[] message){
+		StringBuilder result=new StringBuilder(message.length*2);
+		for(byte b:message){
+			result.append(CryptoContant.HEXDIGITS[b>>>4&0xf]).append(CryptoContant.HEXDIGITS[b&0xf]);
+		}
+		return null;
+	}
+
+}

@@ -1,0 +1,11 @@
+package pers.nasanir.blog.common.db.orm;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public class BaseCurdDao {
+	
+	public Class<?> query(){
+		return null;
+	}
+}

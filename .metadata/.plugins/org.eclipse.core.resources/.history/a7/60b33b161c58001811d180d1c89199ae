@@ -1,0 +1,20 @@
+package pers.nasanir.blog.common.sign.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import pers.nasanir.blog.common.sign.itf.ISignUpService;
+
+public class SignUpServiceImpl implements ISignUpService {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	@Override
+	public String signup() {
+		// TODO Auto-generated method stub
+		String usercode=jdbcTemplate.queryForObject("select usercode from bolg_user", String.class);
+		return usercode;
+	}
+
+}

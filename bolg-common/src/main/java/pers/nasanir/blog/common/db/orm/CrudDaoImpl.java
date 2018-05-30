@@ -1,0 +1,24 @@
+package pers.nasanir.blog.common.db.orm;
+
+import java.util.HashMap;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.SelectProvider;
+
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.common.entity.BaseVO;
+import pers.nasanir.blog.common.db.provider.BaseProvider;
+
+/**
+ * 通用查询接口
+ * @author nasanir
+ *
+ */
+@Mapper
+public interface CrudDaoImpl {
+
+	@SelectProvider(type = BaseProvider.class, method = "query")
+	public HashMap<String, Object> query(AbstractVO vo);
+}

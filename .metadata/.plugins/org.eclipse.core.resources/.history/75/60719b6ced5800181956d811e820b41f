@@ -1,0 +1,14 @@
+package pers.nasanir.blog.common.db.impl;
+
+import java.util.List;
+
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.common.entity.VOSet;
+
+public interface IJdbcBaseService<T> {
+	@SuppressWarnings("hiding")
+	public <T extends AbstractVO> VOSet<T> queryAll(T vo,String where);
+
+	public List<? extends AbstractVO> queryByKey(AbstractVO vo);
+
+}

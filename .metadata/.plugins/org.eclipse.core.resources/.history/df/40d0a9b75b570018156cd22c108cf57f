@@ -1,0 +1,31 @@
+package pers.nasanir.blog.common.crypto.encoder;
+
+import pers.nasanir.blog.common.crypto.abst.AbstractEncoder;
+
+public class Hex256Encoder extends AbstractEncoder {
+
+	@Override
+	public byte[] encode(byte[] message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] encode(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] decode(byte[] message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] decode(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

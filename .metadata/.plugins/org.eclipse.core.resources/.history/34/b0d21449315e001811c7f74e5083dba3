@@ -1,0 +1,15 @@
+package pers.nasanir.blog.common.sql.factroy;
+
+import java.util.HashMap;
+
+import pers.nasanir.blog.common.sql.abst.AbstractSqlBuilder;
+import pers.nasanir.blog.common.sql.constant.SqlEnum;
+import pers.nasanir.blog.common.sql.itf.ISqlbuilder;
+
+public class SqlManager {
+	public static <T extends AbstractSqlBuilder> Class<T> getSqlBuilder(String type){
+		HashMap<String, SqlEnum> typeMap=new HashMap<String,SqlEnum>();
+		typeMap.put("mysql", SqlEnum.MYSQL);
+		return Class.forName(typeMap.get(type).getName());
+	}
+}

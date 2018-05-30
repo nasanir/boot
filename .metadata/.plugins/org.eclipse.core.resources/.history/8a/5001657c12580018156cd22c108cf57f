@@ -1,0 +1,11 @@
+package pers.nasanir.blog.common.crypto.constant;
+
+public enum EncoderEnum {
+	HEX256("Hex256Encoder"),
+	
+	private String encoderName;
+	
+	EncoderEnum(String encoderName){
+		this.encoderName=encoderName;
+	}
+}

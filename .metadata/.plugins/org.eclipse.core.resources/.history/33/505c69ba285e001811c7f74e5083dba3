@@ -1,0 +1,15 @@
+package pers.nasanir.blog.common.db.orm;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.SelectProvider;
+
+import pers.nasanir.blog.common.common.entity.BaseVO;
+import pers.nasanir.blog.common.db.provider.BaseProvider;
+
+@Mapper
+public interface CrudDaoImpl {
+	
+	
+	@SelectProvider(type=BaseProvider.class,method=query)
+	public Class<? extends BaseVO> query();
+}

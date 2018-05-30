@@ -1,0 +1,27 @@
+package pers.nasanir.blog.common.common.entity;
+
+import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Locale;
+
+import pers.nasanir.blog.common.reflect.ClassInfo;
+import pers.nasanir.blog.common.reflect.Invoker;
+
+public abstract class AbstractVO implements Serializable {
+
+	public Object getValue(String name) {
+		ClassInfo classInfo = ClassInfo.forClass(this.getClass());
+		Invoker invoker = classInfo.getInvokerMap().get(name.toLowerCase(Locale.ROOT));
+		if (invoker != null) {
+			try {
+				Object value = invoker.invoke(this, null);
+				return value;
+			} catch (IllegalAccessException | InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return null;
+	}
+}

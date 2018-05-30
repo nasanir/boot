@@ -1,0 +1,36 @@
+package pers.nasanir.blog.common.sql.service;
+
+import java.lang.reflect.Field;
+
+import pers.nasanir.blog.common.common.anno.PeaceField;
+import pers.nasanir.blog.common.common.anno.PeaceTable;
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.db.constant.DbConstant;
+import pers.nasanir.blog.common.sql.entity.SqlVO;
+import pers.nasanir.blog.common.sql.itf.ISqlbuilder;
+
+public class AbstractSqlBuilder implements ISqlbuilder {
+
+	@Override
+	public <T extends AbstractVO> SqlVO getQuerySql(T vo) {
+		// TODO Auto-generated method stub
+		Class<? extends AbstractVO> voClass = vo.getClass();
+		boolean isTable = voClass.isAnnotationPresent(PeaceTable.class);
+		if (isTable) {
+			PeaceTable tableAnno = voClass.getAnnotation(PeaceTable.class);
+			String tableName = tableAnno.name();
+			if (!tableName.equals("")) {
+				StringBuffer sql = new StringBuffer(DbConstant.SQLSTRAT.length() + tableName.length());
+				sql.append(DbConstant.SQLSTRAT).append(tableName);
+				Field[] fieldArr = voClass.getFields();
+				for (Field field : fieldArr) {
+					if(field.isAnnotationPresent(PeaceField.class)){
+						
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+}

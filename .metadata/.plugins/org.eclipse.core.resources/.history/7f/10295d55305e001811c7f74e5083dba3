@@ -1,0 +1,15 @@
+package pers.nasanir.blog.common.sql.factroy;
+
+import org.springframework.beans.factory.annotation.Value;
+
+import pers.nasanir.blog.common.sql.itf.ISqlbuilder;
+
+public class SqlFactroy {
+	   @Value("${auth.authUrl}")
+	    private String type;
+	
+	
+	public static ISqlbuilder createSqlBuilder(String){
+		
+	} 
+}

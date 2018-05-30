@@ -1,0 +1,12 @@
+package pers.nasanir.blog.common.db.impl;
+
+import java.util.List;
+
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+
+public interface IJdbcBaseService<T> {
+	public List<? extends AbstractVO> queryAll(T vo,String where);
+
+	public List<? extends AbstractVO> queryByKey(AbstractVO vo);
+
+}

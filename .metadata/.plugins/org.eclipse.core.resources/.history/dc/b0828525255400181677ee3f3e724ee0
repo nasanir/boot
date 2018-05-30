@@ -1,0 +1,5 @@
+package pers.nasanir.blog.bolg.common.login.ctrl;
+
+public class LoginController {
+
+}

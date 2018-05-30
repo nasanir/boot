@@ -1,0 +1,10 @@
+package pers.nasanir.blog.common;
+
+import pers.nasanir.blog.common.crypto.constant.EncoderEnum;
+import pers.nasanir.blog.common.crypto.factroy.CryptoFactory;
+
+public class test {
+	public static void main(String[] args){
+		CryptoFactory.getInstance(EncoderEnum.HEX256);
+	}
+}

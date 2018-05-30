@@ -1,0 +1,11 @@
+package pers.nasanir.blog.bolg.common.login.ctrl;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class LoginController {
+	
+	public String login(){
+		return null;
+	}
+}

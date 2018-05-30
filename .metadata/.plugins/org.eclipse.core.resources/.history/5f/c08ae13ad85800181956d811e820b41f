@@ -1,0 +1,5 @@
+package pers.nasanir.blog.common.common.anno;
+
+public class Table {
+
+}

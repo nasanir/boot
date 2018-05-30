@@ -1,0 +1,25 @@
+package pers.nasanir.blog.bolg.common.login.ctrl;
+
+import org.apache.shiro.SecurityUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class LoginController {
+	@RequestMapping(value="/login")
+	public String login(){
+		boolean isremanber=SecurityUtils.getSubject().isRemembered();
+		boolean isAuthenticated=SecurityUtils.getSubject().isAuthenticated();
+		if(isAuthenticated||isremanber){
+			
+		}
+		return "login";
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/a")
+	public String a(){
+		return "a";
+	}
+}

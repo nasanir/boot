@@ -1,0 +1,35 @@
+package pers.nasanir.blog.common.reflect;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+
+import pers.nasanir.blog.common.exception.ReflectRuntimeException;
+
+public class ClassInfo {
+	private static HashMap<Class<?>, ClassInfo> CACHEMAP = new HashMap<Class<?>, ClassInfo>();
+	private Class<?> clz;
+	private 
+
+	ClassInfo(Class<?> clz) {
+		this.clz = clz;
+	}
+
+	public static ClassInfo forClass(Class<?> clz) {
+		if (clz != null) {
+			if (!CACHEMAP.containsKey(clz)) {
+				CACHEMAP.put(clz, new ClassInfo(clz));
+			}
+			return CACHEMAP.get(clz);
+		} else {
+			throw new ReflectRuntimeException("forClass is null");
+		}
+	}
+	
+	private void addGetMethods(Class<?> clz){
+		Method[] methodArr=clz.getMethods();
+		for(Method method:methodArr){
+			
+		}
+	}
+
+}

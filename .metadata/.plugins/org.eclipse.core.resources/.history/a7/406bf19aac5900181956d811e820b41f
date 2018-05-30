@@ -1,0 +1,41 @@
+package pers.nasanir.blog.common.sql.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+
+import pers.nasanir.blog.common.common.anno.Table;
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.db.constant.DbConstant;
+import pers.nasanir.blog.common.sql.entity.SqlVO;
+import pers.nasanir.blog.common.sql.itf.ISqlbuilder;
+
+public class AbstractSqlBuilder implements ISqlbuilder {
+
+	@Override
+	public <T extends AbstractVO> SqlVO getQuerySql(T vo) {
+		// TODO Auto-generated method stub
+		Class<? extends AbstractVO> voClass = vo.getClass();
+		boolean isTable = voClass.isAnnotationPresent(Table.class);
+		if (isTable) {
+			Table tableAnno = voClass.getAnnotation(Table.class);
+			String tableName = tableAnno.name();
+			if (!tableName.equals("")) {
+				StringBuffer sql = new StringBuffer(DbConstant.SQLSTRAT.length() + tableName.length() + where.length());
+				sql.append(DbConstant.SQLSTRAT).append(tableName);
+				if (!where.equals("")) {
+					sql.append(" where ").append(where);
+				}
+				voSet.setSql(sql.toString());
+				List<T> voList=new ArrayList<T>();
+				voList = jdbcTemplate.query(sql.toString(),
+						new BeanPropertyRowMapper(voClass));
+				voSet.setVoList(voList);
+				return voSet;
+			}
+		}
+		return null;
+	}
+
+}

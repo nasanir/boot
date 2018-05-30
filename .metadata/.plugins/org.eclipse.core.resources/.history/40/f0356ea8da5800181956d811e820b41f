@@ -1,0 +1,28 @@
+package pers.nasanir.blog.common.db.service;
+
+import java.util.List;
+
+import com.mysql.cj.xdevapi.Table;
+
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.db.impl.IJdbcBaseService;
+
+public class JdbcBaseServiceImpl implements IJdbcBaseService {
+
+	@Override
+	public <T extends AbstractVO> List<T> queryAll(AbstractVO vo) {
+		// TODO Auto-generated method stub
+		Class voClass=vo.getClass();
+		boolean isTable=voClass.isAnnotationPresent(Table.class);
+		return null;
+	}
+
+	@Override
+	public <T extends AbstractVO> T queryOne() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

@@ -1,0 +1,21 @@
+package pers.nasanir.blog.common.sql.factroy;
+
+import java.util.HashMap;
+
+import pers.nasanir.blog.common.sql.constant.SqlEnum;
+import pers.nasanir.blog.common.sql.itf.ISqlbuilder;
+import pers.nasanir.blog.common.sql.service.MysqlSqlBuilder;
+
+public class SqlManager {
+	public static Class<?> getSqlBuilder(String type){
+		HashMap<String, ISqlbuilder> typeMap=new HashMap<String,ISqlbuilder>();
+		typeMap.put("mysql", new MysqlSqlBuilder());
+		try {
+			return Class.forName(typeMap.get(type).getName());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

@@ -1,0 +1,10 @@
+package pers.nasanir.blog.common.common.entity;
+
+import java.io.Serializable;
+
+import pers.nasanir.blog.common.common.anno.Table;
+
+@Table
+public abstract class AbstractVO implements Serializable {
+
+}

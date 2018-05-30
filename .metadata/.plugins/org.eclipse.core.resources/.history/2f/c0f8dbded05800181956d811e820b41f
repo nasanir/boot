@@ -1,0 +1,16 @@
+package pers.nasanir.blog.common.user.entity;
+
+import java.util.Date;
+
+public class UserVO {
+	private Long userid;
+	private String usercode;
+	private String username;
+	private String password;
+	private Integer isenable;
+	private Integer islock;
+	private Date lock_dt;
+	private Date created_dt;
+	private String email;
+	private String mobile;
+}

@@ -1,0 +1,5 @@
+package pers.nasanir.blog.bolg.common.shiro.conf;
+
+public class ShiroConfig {
+
+}

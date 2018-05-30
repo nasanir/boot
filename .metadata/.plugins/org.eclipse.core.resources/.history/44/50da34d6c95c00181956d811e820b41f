@@ -1,0 +1,6 @@
+package pers.nasanir.blog.common.common.constant;
+
+public class CommonConstant {
+	public static final String GET="get";
+	public static final String SET="SET";
+}	

@@ -1,0 +1,5 @@
+package pers.nasanir.blog.common.exception;
+
+public class BaseRunTimeException extends RuntimeException {
+
+}

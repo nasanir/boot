@@ -1,0 +1,5 @@
+package pers.nasanir.blog.common.sign.ctrl;
+
+public class SignUpController {
+
+}

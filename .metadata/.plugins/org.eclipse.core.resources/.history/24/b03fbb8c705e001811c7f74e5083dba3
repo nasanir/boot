@@ -1,0 +1,38 @@
+package pers.nasanir.blog.common.db.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.db.impl.IJdbcBaseService;
+import pers.nasanir.blog.common.db.orm.CrudDaoImpl;
+
+@Service("jdbcBaseService")
+public class JdbcBaseServiceImpl implements IJdbcBaseService {
+
+	@Autowired
+	private CrudDaoImpl crudDao;
+	
+
+	public AbstractVO query(AbstractVO vo) {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> valueMap=crudDao.query(vo);
+		for(String name:valueMap.keySet()){
+			if(valueMap.get(name).getClass().getName().equals("java.lang.Boolean")){
+				if((boolean)valueMap.get(name)){
+					
+				}
+			}
+			
+			vo.setValue(name, );
+		}
+		
+		
+		return vo;
+	}
+
+}

@@ -1,0 +1,30 @@
+package pers.nasanir.blog.common.sign.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+
+import pers.nasanir.blog.common.common.entity.VOSet;
+import pers.nasanir.blog.common.db.orm.JdbcBaseDao;
+import pers.nasanir.blog.common.sign.itf.ISignUpService;
+import pers.nasanir.blog.common.user.entity.UserVO;
+
+@Service("signUpService")
+public class SignUpServiceImpl implements ISignUpService {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	@Override
+	public String signup() {
+		// TODO Auto-generated method stub
+UserVO userVO=new UserVO();
+JdbcBaseDao jd=new JdbcBaseDao();
+VOSet<UserVO> voSet=jd.queryAll(userVO,"");
+List<UserVO> userList=voSet.getVoList();
+		return usercode;
+	}
+
+}

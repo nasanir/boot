@@ -1,0 +1,9 @@
+package pers.nasanir.blog.common.sql.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SqlVO {
+	private String sql;
+	private List<Object> argList=new ArrayList<Object>();
+}

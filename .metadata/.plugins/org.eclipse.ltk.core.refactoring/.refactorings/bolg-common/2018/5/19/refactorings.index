@@ -1,0 +1,8 @@
+1525842630021	Rename type 'App'
+1525843232481	Rename compilation unit 'blogApplicationMain.java'
+1525843556975	Rename package 'pers.nasanir.blog.bolg_common'
+1525843576088	Rename package 'pers.nasanir.blog.bolg_common.ctrl'
+1525843582793	Rename package 'pers.nasanir.blog.bolg_common.service'
+1525937804790	Delete elements
+1526006259467	Move 'login.jsp' to 'jsp'
+1526006396324	Move 'jsp' to 'WEB-INF'

@@ -1,0 +1,8 @@
+package pers.nasanir.blog.common.reflect;
+
+import java.lang.reflect.Method;
+
+public class Invoke {
+	private Method method;
+	
+}

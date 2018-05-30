@@ -1,0 +1,11 @@
+package pers.nasanir.blog.common.db.orm;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import pers.nasanir.blog.common.common.entity.BaseVO;
+
+@Mapper
+public interface CrudDaoImpl {
+	
+	public Class<? extends BaseVO> query();
+}

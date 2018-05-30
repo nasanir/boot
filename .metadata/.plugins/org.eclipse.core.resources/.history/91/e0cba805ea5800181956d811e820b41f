@@ -1,0 +1,13 @@
+package pers.nasanir.blog.common.common.entity;
+
+import java.util.List;
+
+public class VOSet<T extends AbstractVO> {
+	private String sql=null;
+	private List<T> voList=null;
+	
+	public T getVO(int index){
+		
+		return null;
+	}
+}

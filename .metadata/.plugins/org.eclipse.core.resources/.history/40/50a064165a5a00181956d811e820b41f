@@ -1,0 +1,7 @@
+package pers.nasanir.blog.common.exception;
+
+public class BaseRunTimeException extends RuntimeException {
+	public BaseRunTimeException(String message){
+		super(message);
+	}
+}

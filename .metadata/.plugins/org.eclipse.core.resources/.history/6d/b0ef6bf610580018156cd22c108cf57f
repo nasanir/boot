@@ -1,0 +1,18 @@
+package pers.nasanir.blog.common.crypto.factroy;
+
+import pers.nasanir.blog.common.crypto.itf.IEncoder;
+
+public class CryptoFactory {
+	private String packagepath="pers.nasanir.blog.common.crypto.encoder.";
+	
+	public static IEncoder getInstance(String name) {
+		IEncoder encoder = null;
+		try {
+			encoder = (IEncoder) Class.forName(packagepath+name).newInstance();
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

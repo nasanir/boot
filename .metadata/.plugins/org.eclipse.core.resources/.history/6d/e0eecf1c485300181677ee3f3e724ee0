@@ -1,0 +1,10 @@
+package pers.nasanir.blog.bolg_common;
+
+
+public class blogApplicationMain 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

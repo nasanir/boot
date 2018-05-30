@@ -1,0 +1,71 @@
+package pers.nasanir.blog.common.reflect;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+
+import pers.nasanir.blog.common.exception.ReflectRuntimeException;
+
+public class ClassInfo {
+	private static HashMap<Class<?>, ClassInfo> CACHEMAP = new HashMap<Class<?>, ClassInfo>();
+	private Class<?> clz;
+	private HashMap<String, Invoker> InvokerMap = new HashMap<String, Invoker>();;
+	private HashMap<String, Class<? extends Annotation>> AnnotationMap = new HashMap<String, Class<? extends Annotation>>();
+
+	ClassInfo(Class<?> clz) {
+		this.clz = clz;
+		addMethods(clz);
+		addAnnotation(clz);
+	}
+
+	public static ClassInfo forClass(Class<?> clz) {
+		if (clz != null) {
+			if (!CACHEMAP.containsKey(clz)) {
+				CACHEMAP.put(clz, new ClassInfo(clz));
+			}
+			return CACHEMAP.get(clz);
+		} else {
+			throw new ReflectRuntimeException("forClass is null");
+		}
+	}
+
+	private void addMethods(Class<?> clz) {
+		Method[] methodArr = clz.getMethods();
+		for (Method method : methodArr) {
+			String name = method.getName();
+			if (name.startsWith("get") && method.getParameterTypes().length == 0) {
+				InvokerMap.put(name, new MethodInvoker(method));
+			} else if (name.startsWith("set")) {
+				InvokerMap.put(name, new MethodInvoker(method));
+			}
+		}
+	}
+
+	private void addAnnotation(Class<?> clz) {
+		Annotation[] annoArr = clz.getAnnotations();
+		for (Annotation anno : annoArr) {
+			String name = anno.annotationType().getName();
+			AnnotationMap.put(name, anno.annotationType());
+		}
+	}
+
+	public Class<?> getClz() {
+		return clz;
+	}
+
+	public HashMap<String, Invoker> getInvokerMap() {
+		return InvokerMap;
+	}
+
+	public HashMap<String, Class<? extends Annotation>> getAnnotationMap() {
+		return AnnotationMap;
+	}
+
+	public <A extends Annotation> Object getAnnotation(Class<A> clz) {
+		if (AnnotationMap.containsKey(clz.getName())) {
+			return AnnotationMap.get(clz.getName()).getAnnotation(clz);
+		}
+		return null;
+	}
+
+}

@@ -1,0 +1,9 @@
+package pers.nasanir.blog.common.db.provider;
+
+import pers.nasanir.blog.common.common.entity.BaseVO;
+
+public class BaseProvider {
+	public <T extends BaseVO> String query(Class<T> vo){
+		return null;
+	}
+}

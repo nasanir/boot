@@ -1,0 +1,5 @@
+package pers.nasanir.blog.common.sql.factroy;
+
+public class SqlManager {
+	
+}

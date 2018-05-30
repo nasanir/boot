@@ -1,0 +1,22 @@
+package pers.nasanir.blog.common.reflect;
+
+import java.util.HashMap;
+
+public class ClassInfo {
+	private static HashMap<Class<?>, ClassInfo> CACHEMAP = new HashMap<Class<?>, ClassInfo>();
+
+	ClassInfo(Class<?> clz) {
+
+	}
+
+	private ClassInfo getInfo(Class<?> clz) {
+		if (clz != null) {
+			if (!CACHEMAP.containsKey(clz)) {
+				CACHEMAP.put(clz, new ClassInfo(clz));
+			}
+			return CACHEMAP.get(clz);
+		}
+		return null;
+	}
+
+}

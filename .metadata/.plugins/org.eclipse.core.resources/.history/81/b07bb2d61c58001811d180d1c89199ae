@@ -1,0 +1,11 @@
+package pers.nasanir.blog.common;
+
+import pers.nasanir.blog.common.crypto.constant.EncoderEnum;
+
+public class test {
+	public  static void main(String args[]){
+		System.out.println(EncoderEnum.HEX256);
+		System.out.println(EncoderEnum.HEX256.name());
+		System.out.println(EncoderEnum.HEX256.getName());
+	}
+}

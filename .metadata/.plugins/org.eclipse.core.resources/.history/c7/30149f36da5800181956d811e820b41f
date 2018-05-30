@@ -1,0 +1,12 @@
+package pers.nasanir.blog.common.db.service;
+
+import java.util.List;
+
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.db.impl.IJdbcBaseService;
+
+public class JdbcBaseServiceImpl implements IJdbcBaseService {
+
+
+
+}

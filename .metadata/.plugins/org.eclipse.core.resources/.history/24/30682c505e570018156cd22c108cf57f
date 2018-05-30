@@ -1,0 +1,7 @@
+package pers.nasanir.blog.common.crypto.factroy;
+
+public class CryptoFactory {
+	public IEncoder getInstance(){
+		
+	}
+}

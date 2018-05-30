@@ -1,0 +1,36 @@
+package pers.nasanir.blog.common.db.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import pers.nasanir.blog.common.common.anno.Table;
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.db.impl.IJdbcBaseService;
+
+public class JdbcBaseServiceImpl implements IJdbcBaseService {
+
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+
+	@Override
+	public <T extends AbstractVO> List<T> queryAll(AbstractVO vo) {
+		// TODO Auto-generated method stub
+		Class<? extends AbstractVO> voClass = vo.getClass();
+		boolean isTable = voClass.isAnnotationPresent(Table.class);
+		if (isTable) {
+			voClass.getAnnotation(Table.class);
+		} else {
+
+		}
+		return null;
+	}
+
+	@Override
+	public <T extends AbstractVO> T queryOne() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

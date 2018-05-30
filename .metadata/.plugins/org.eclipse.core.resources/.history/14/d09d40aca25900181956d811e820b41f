@@ -1,0 +1,57 @@
+package pers.nasanir.blog.common.db.orm;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import pers.nasanir.blog.common.common.anno.Table;
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.common.entity.VOSet;
+import pers.nasanir.blog.common.db.constant.DbConstant;
+import pers.nasanir.blog.common.db.impl.IJdbcBaseService;
+
+public class JdbcBaseDao {
+
+	@Autowired
+    private JdbcTemplate jdbcTemplate;
+
+	
+
+	public List<? extends AbstractVO> queryByKey(AbstractVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public <T extends AbstractVO> VOSet<T> queryAll(T vo, String where) {
+		// TODO Auto-generated method stub
+		VOSet<T> voSet=new VOSet<T>();
+		Class<? extends AbstractVO> voClass = vo.getClass();
+		boolean isTable = voClass.isAnnotationPresent(Table.class);
+		if (isTable) {
+			Table tableAnno = voClass.getAnnotation(Table.class);
+			String tableName = tableAnno.name();
+			if (!tableName.equals("")) {
+				StringBuffer sql = new StringBuffer(DbConstant.SQLSTRAT.length() + tableName.length() + where.length());
+				sql.append(DbConstant.SQLSTRAT).append(tableName);
+				if (!where.equals("")) {
+					sql.append(" where ").append(where);
+				}
+				voSet.setSql(sql.toString());
+				List<T> voList=new ArrayList<T>();
+				voList = jdbcTemplate.query(sql.toString(),
+						new BeanPropertyRowMapper(voClass));
+				voSet.setVoList(voList);
+				return voSet;
+			}
+		}
+		return null;
+	}
+
+
+
+}

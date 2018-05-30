@@ -1,0 +1,8 @@
+package pers.nasanir.blog.common.sign.ctrl;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class SignUpController {
+	public String signUp
+}

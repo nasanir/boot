@@ -1,0 +1,7 @@
+package pers.nasanir.blog.common.db.provider;
+
+public class BaseProvider {
+	public String query(){
+		return null;
+	}
+}

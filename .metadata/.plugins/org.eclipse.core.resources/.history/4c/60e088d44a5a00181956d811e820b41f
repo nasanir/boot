@@ -1,0 +1,13 @@
+package pers.nasanir.blog.common.reflect;
+
+import java.util.HashMap;
+
+public class ClassInfo {
+	private static HashMap<Class<?>, ClassInfo> classChacheMap = new HashMap<Class<?>, ClassInfo>();
+	
+	private ClassInfo getInfo(Class<?> c){
+		
+	}
+	
+	
+}

@@ -1,0 +1,22 @@
+package pers.nasanir.blog.common.crypto.itf;
+
+public interface IEncoder {
+	byte[] encode(byte[] message);
+	
+	byte[] encode(String message);
+	
+	String encode2String(byte[] message);
+	
+	String encode2String(String message);
+	
+	byte[] decode(byte[] message);
+	
+	byte[] decode(String message);
+	
+	String decode2String(byte[] message);
+	
+	String decode2String(String message);
+	
+	boolean vaildate(String message,String sign);
+	
+}

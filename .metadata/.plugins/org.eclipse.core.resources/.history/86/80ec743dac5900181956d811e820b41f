@@ -1,0 +1,15 @@
+package pers.nasanir.blog.common.sql.service;
+
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+import pers.nasanir.blog.common.sql.entity.SqlVO;
+import pers.nasanir.blog.common.sql.itf.ISqlbuilder;
+
+public class AbstractSqlBuilder implements ISqlbuilder {
+
+	@Override
+	public <T extends AbstractVO> SqlVO getQuerySql(T vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

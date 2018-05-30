@@ -1,0 +1,20 @@
+package pers.nasanir.blog.common.db.orm;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import pers.nasanir.blog.common.common.entity.AbstractVO;
+@Repository("jdbcBaseDao")
+public class JdbcBaseDao {
+	public List<? extends AbstractVO> queryByKey(AbstractVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}

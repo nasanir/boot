@@ -1,0 +1,61 @@
+package pers.nasanir.blog.common.crypto.abst;
+
+import pers.nasanir.blog.common.crypto.itf.IEncoder;
+
+public abstract class AbstractEncoder implements IEncoder {
+
+	@Override
+	public byte[] encode(byte[] message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] encode(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String encode2Hex(byte[] message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String encode2Hex(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] decode(byte[] message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] decode(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String decode2Hex(byte[] message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String decode2Hex(String message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <T> boolean vaildate(T message, T sign) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
